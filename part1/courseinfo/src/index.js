@@ -35,20 +35,20 @@ const Part = (props) => {
     </div>
   )
 }
-const Content = () => {
+const Content = (props) => {
   return (
     <div>
-      <Part part={course.parts[0].name} exercise={course.parts[0].exercises}/>
-      <Part part={course.parts[1].name} exercise={course.parts[1].exercises}/>
-      <Part part={course.parts[2].name} exercise={course.parts[2].exercises}/>
+      <Part part={props.parts[0].name} exercise={props.parts[0].exercises}/>
+      <Part part={props.parts[1].name} exercise={props.parts[1].exercises}/>
+      <Part part={props.parts[2].name} exercise={props.parts[2].exercises}/>
     </div>
     )
   } 
 
-const Total = () => {
+const Total = (props) => {
   return (
     <div>
-      <p>Number of exercises {course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises}</p>  
+      <p>Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>  
     </div>
     )
 }
