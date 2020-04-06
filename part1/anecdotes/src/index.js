@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-const App = (props) => {
+/* const App = (props) => {
   const [selected, setSelected] = useState(0)
   const [voted, setVoted] = useState(0)
 
@@ -15,6 +15,29 @@ const App = (props) => {
     <div>
       <p>{props.anectodes[selected]}</p>
       <button onClick={() => setVoted(voted + 1)}>vote</button>
+      <button onClick={() => setSelected(Math.floor(Math.random() * anectodes.length))} >show another!</button>
+    </div>
+  )
+} */
+
+const App = (props) => {
+  const [selected, setSelected] = useState(0)
+  const [voted, setVoted] = useState([0,0,0,0,0,0])
+
+  function vote() {
+    setVoted(voted.map((value, index) => {
+      if(index == selected){
+        return value + 1
+      }
+      return value;
+    }))
+  }
+  
+  return (
+    <div>
+      <p>{props.anectodes[selected]}</p>
+      <p>{voted[selected]}</p>
+      <button onClick={() => vote()}>vote</button>
       <button onClick={() => setSelected(Math.floor(Math.random() * anectodes.length))} >show another!</button>
     </div>
   )
